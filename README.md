@@ -7,7 +7,7 @@ Nowadays there is a lot of discussion in Dutch politics: leave or stay in the Eu
 # Solution
 This visualization will give insight in the acts of the EU and thus contribute to bring more nuance about European politics among the Dutch voters.
 
-![Alt Text](url)
+![Alt Text](doc/sketch1.png)
 
 The sketches of the product show an interactive map, which will contain all the members states of the EU. Clicking on the map will update some sort of data visualization (currently shown as barchart, but this might be a subject to change) of the selected country. Also a list of (popular) political task areas is shown in the project which will be clickable, which will show information as shown in the second sketch. How this visualization will be implemented is unclear, possibly based on some sort of bootstrap idea. 
 
