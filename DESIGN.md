@@ -1,6 +1,6 @@
 Design
 
-#List of Data Sources
+# List of Data Sources
 
 Employment
 http://ec.europa.eu/eurostat/tgm/table.do?tab=table&init=1&language=en&pcode=t2020_10&plugin=1
@@ -9,7 +9,9 @@ Research and Development
 http://ec.europa.eu/eurostat/tgm/table.do?tab=table&init=1&language=en&pcode=t2020_20&plugin=1
 
 Climate Change and Energy
+
 greenhouse gas emission: http://ec.europa.eu/eurostat/tgm/table.do?tab=table&init=1&language=en&pcode=t2020_30&plugin=1
+
 energy consumption: http://ec.europa.eu/eurostat/tgm/table.do?tab=table&init=1&language=en&pcode=t2020_34&plugin=1
 
 Education:
@@ -51,7 +53,9 @@ The data will be stored in different csv and json files.
 # Plugins:
 
 d3-slider
+
 d3-tip
+
 bootstrap
 
 
