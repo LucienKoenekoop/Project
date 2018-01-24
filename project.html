@@ -3,8 +3,10 @@
 	<meta charset="utf-8">
 	<script src="d3.js"></script>
 	<script src="https://d3js.org/queue.v1.min.js"></script>
+	<script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 	<script src="project.js"></script>
-	 <link rel="stylesheet" href="project.css">
+	<script src="topics.js"></script>
+	<link rel="stylesheet" href="project.css">
 	<title>ProgrammeerProject</title>
 </head>
 <body>
@@ -12,7 +14,17 @@
 		<input type="range" min="1990" max="2018" value="2016" class="slider" id="myRange">
 		 <p>Year: <span id="demo"></span></p>
 	</div>
-	<div id="mapcontainer" width="1080" heigth="720"></div>
+	<div id="container">
+		<div id="topics">
+			<form>
+				<label><input type="radio" name="dataset" id="dataset" value="total" checked> Total</label>
+				<label><input type="radio" name="dataset" id="dataset" value="option1"> Option 1</label>
+				<label><input type="radio" name="dataset" id="dataset" value="option2"> Option 2</label>
+			</form>
+		</div>
+		<div id="plot"></div>
+		<div id="mapcontainer" width="1080" heigth="720"></div>
+	</div>
 </body>
 
 <!-- w3schools slider: https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
