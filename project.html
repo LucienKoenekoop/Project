@@ -10,21 +10,31 @@
 	<title>ProgrammeerProject</title>
 </head>
 <body>
-	<div class="slidecontainer">
-		<input type="range" min="1990" max="2018" value="2016" class="slider" id="myRange">
-		 <p>Year: <span id="demo"></span></p>
-	</div>
-	<div id="container">
-		<div id="topics">
-			<form>
-				<label><input type="radio" name="dataset" id="dataset" value="total" checked> Total</label>
-				<label><input type="radio" name="dataset" id="dataset" value="option1"> Option 1</label>
-				<label><input type="radio" name="dataset" id="dataset" value="option2"> Option 2</label>
-			</form>
+	<div class="elements">
+		<input type="range" min="2008" max="2016" value="2016" class="slider" id="myRange">
+			<p class="year"><span id="demo"></span></p>
+		<div class="dropdown">
+		  <button class="dropbtn" id="button">Dropdown</button>
+		  <div class="dropdown-content" id="category">
+		    <a class="c" value="Employment" href="#">Employment</a>
+		    <a class="c" value="R&D" href="#">R&D</a>
+		    <a class="c" value="Asylum" href="#">Asylum</a>
+		    <a class="c" value="Healthcare" href="#">Healthcare</a>
+		    <a class="c" value="Education" href="#">Education</a>
+		    <a class="c" value="Emission" href="#">Emission</a>
+		    <a class="c" value="GDP" href="#">GDP per Capita</a>
+		  </div>
 		</div>
+	</div>
+
+	<div id="container">
+		<div id="topics"></div>
+		<p class="year"><span id="demo2"></p>
 		<div id="plot"></div>
 		<div id="mapcontainer" width="1080" heigth="720"></div>
 	</div>
+	<button id="show">Show All</button>
+	<button id="hide">Hide All</button>
 </body>
 
 <!-- w3schools slider: https://www.w3schools.com/howto/howto_js_rangeslider.asp -->

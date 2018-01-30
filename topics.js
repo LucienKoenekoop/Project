@@ -1,4 +1,4 @@
-function test(year) {
+function test(year, country) {
 
 	d3.select("input[value=\"total\"]").property("checked", true);
 
@@ -41,66 +41,68 @@ function test(year) {
 	var color = d3.scale.ordinal()
 		.range(colorRange.range());
 
+	var file;
 
-	datasetTotal = [
-			{label:"Category 1", value:19}, 
-	        {label:"Category 2", value:5}, 
-	        {label:"Category 3", value:13},
-	        {label:"Category 4", value:17},
-	        {label:"Category 5", value:19},
-	        {label:"Category 6", value:27}
-	        ];
+	if (country != "EU") {
+		file = "data/" + year + ".csv";
+	}
+	else {
+		file = "data/EU.csv";
+	};
 
-	datasetOption1 = [
-			{label:"Category 1", value:22}, 
-	        {label:"Category 2", value:33}, 
-	        {label:"Category 3", value:4},
-	        {label:"Category 4", value:15},
-	        {label:"Category 5", value:36},
-	        {label:"Category 6", value:0}
-	        ];
-
-	datasetOption2 = [
-			{label:"Category 1", value:10}, 
-	        {label:"Category 2", value:20}, 
-	        {label:"Category 3", value:30},
-	        {label:"Category 4", value:5},
-	        {label:"Category 5", value:12},
-	        {label:"Category 6", value:23}
-	        ];
-
-	// change(datasetTotal);
-
-
-	// d3.selectAll("input")
-	// 	.on("change", selectDataset);
-		
-	// function selectDataset()
-	// {
-	// 	var value = this.value;
-	// 	if (value == "total")
-	// 	{
-	// 		change(datasetTotal);
-	// 	}
-	// 	else if (value == "option1")
-	// 	{
-	// 		change(datasetOption1);
-	// 	}
-	// 	else if (value == "option2")
-	// 	{
-	// 		change(datasetOption2);
-	// 	}
-	// }
-
-	// function change(data) {
-
-	d3.csv("data/topics.csv", function(error, data) {
+	d3.csv(file, function(error, data) {
 		if (error) throw error;
 
-		data.forEach(function(d) {
-			console.log(d.Label)
-			d[year] = +d[year];
-		})
+		if (file == "data/EU.csv") {
+			data.forEach(function(d) {
+				if (d.Year == year) {
+					d.GDP = +d.GDP;
+			    	d.Employment = +d.Employment;
+			    	d.Asylum = +d.Asylum;
+			    	d["R&D"] = +d["R&D"];
+			    	d.Population = +d.Population;
+			    	d.Emission = +d.Emission;
+			    	d.Education = +d.Education;
+
+					dataset = [
+						{label:"Employment", value:d.Employment}, 
+		        		{label:"R&D", value:d["R&D"]}, 
+		        		{label:"Asylum", value:d.Asylum},
+		        		{label:"Healthcare", value:d.Healthcare},
+		        		{label:"Education", value:d.Education},
+		        		{label:"Emission", value:d.Emission}
+		        	];
+				}
+			})
+		}
+		else if (file == "data/" + year + ".csv") {
+			data.forEach(function(d) {
+				if (d.Country == country) {
+					d.GDP = +d.GDP
+					d.Employment = +d.Employment;
+					d.Asylum = +d.Asylum;
+					d["R&D"] = +d["R&D"];
+					d.Population = +d.Population;
+					d.Healthcare = +d.Healthcare;
+					d.Emission = +d.Emission;
+					d.Education = +d.Education;
+
+					dataset = [
+						{label:"Employment", value:d.Employment}, 
+		        		{label:"R&D", value:d["R&D"]}, 
+		        		{label:"Asylum", value:d.Asylum},
+		        		{label:"Healthcare", value:d.Healthcare},
+		        		{label:"Education", value:d.Education},
+		        		{label:"Emission", value:d.Emission}
+		        	];
+				}
+			})
+		};
+
+	    change(dataset);
+	});
+
+	function change(data) {
 
 		/* ------- PIE SLICES -------*/
 		var slice = svg.select(".slices").selectAll("path.slice")
@@ -109,29 +111,36 @@ function test(year) {
 	    slice.enter()
 	        .insert("path")
 	        .style("fill", function(d) { return color(d.data.label); })
-	        .attr("class", "slice");
+	        .style("opacity", 0.8)
+	        .attr("class", "slice")
+	        .attr("id", function(d) { return d.data.label; });
 
 	    slice
 	        .transition().duration(1000)
 	        .attrTween("d", function(d) {
-	            this._current = this._current || d[year];
-	            var interpolate = d3.interpolate(this._current, d[year]);
+	            this._current = this._current || d;
+	            var interpolate = d3.interpolate(this._current, d);
 	            this._current = interpolate(0);
 	            return function(t) {
 	                return arc(interpolate(t));
 	            };
 	        })
-	    // slice
-	    //     .on("mousemove", function(d){
-	    //         div.style("left", d3.event.pageX+10+"px");
-	    //         div.style("top", d3.event.pageY-25+"px");
-	    //         div.style("display", "inline-block");
-	    //         div.html((d.data.label)+"<br>"+(d.data.value)+"%");
-	    //     });
-	    // slice
-	    //     .on("mouseout", function(d){
-	    //         div.style("display", "none");
-	    //     });
+	    slice
+	        .on("click", function(d) {
+	        	console.log(event.target.id);
+	        	yTopic = event.target.id;
+	        	Update();
+	        });
+	    slice
+	        .on("mouseover", function(d) {
+				d3.select(this)
+					.style("opacity", 1);
+	        });
+	    slice
+	    	.on("mouseout", function(d) {
+			d3.select(this)
+				.style("opacity", 0.8);	    		
+	    	})
 
 	    slice.exit()
 	        .remove();
@@ -158,7 +167,7 @@ function test(year) {
 	    legend.append('text')
 	        .attr('x', legendRectSize + legendSpacing)
 	        .attr('y', legendRectSize - legendSpacing)
-	        .text(function(d) { return d.Label; });
+	        .text(function(d) { return d; });
 
 	    /* ------- TEXT LABELS -------*/
 
@@ -229,6 +238,7 @@ function test(year) {
 
 	    // polyline.exit()
 	    //     .remove();
-	});
+
+	};
 
 }
