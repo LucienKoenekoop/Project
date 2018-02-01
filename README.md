@@ -14,18 +14,22 @@ This image of the page shows all the functionality that is implemented on the si
 
 # Prerequisites
 Data Sources
-https://www.prodemos.nl/leer/informatie-over-politiek/de-europese-unie/doet-europese-unie/
-https://www.europa-nu.nl/id/vh9w9l2qtnwn/nederlandse_afdrachten_aan_de_eu
-https://www.rijksoverheid.nl/onderwerpen/europese-unie
-http://ec.europa.eu/eurostat/data/database
+- https://www.prodemos.nl/leer/informatie-over-politiek/de-europese-unie/doet-europese-unie/
+- https://www.europa-nu.nl/id/vh9w9l2qtnwn/nederlandse_afdrachten_aan_de_eu
+- https://www.rijksoverheid.nl/onderwerpen/europese-unie
+- http://ec.europa.eu/eurostat/data/database
 
 External Components
 - Bootstrap
 
 Similar
-http://bl.ocks.org/oscar6echo/4423770
-http://bl.ocks.org/erichoco/6694616
-https://www.w3schools.com/howto/howto_js_rangeslider.asp
-http://bl.ocks.org/juan-cb/1984c7f2b446fffeedde
-https://www.w3schools.com/css/css_dropdowns.asp
-https://www.w3schools.com/bootstrap/default.asp
+- http://bl.ocks.org/oscar6echo/4423770
+- http://bl.ocks.org/erichoco/6694616
+- https://www.w3schools.com/howto/howto_js_rangeslider.asp
+- http://bl.ocks.org/juan-cb/1984c7f2b446fffeedde
+- https://www.w3schools.com/css/css_dropdowns.asp
+- https://www.w3schools.com/bootstrap/default.asp
+
+Images
+- https://www.binarytree.com/media/2832/european-union-gdpr.jpg
+- https://i1.wp.com/geoawesomeness.com/wp-content/uploads/2017/03/european-union-brexit-political-map-with-european-union-member-states.jpg
