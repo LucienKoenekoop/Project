@@ -63,7 +63,8 @@ window.onload = function () {
 	var xAxis = d3.svg.axis()
 		.scale(x)
 		.tickSize(-plotheight)
-		.orient("bottom")
+		.tickFormat(function(d) { return d + "%"})
+		.orient("bottom");
 
 	var yAxis = d3.svg.axis()
 		.scale(y)
@@ -222,17 +223,15 @@ window.onload = function () {
 
 	};
 
-	// function Update() {
-
-		Update = function() {
+	Update = function() {
 
 		var DeleteMap = d3.select("body").select("#mapcontainer");
 		DeleteMap.selectAll("*").remove();
 
-		var DeletePlot = d3.select("#plot").select("g");
+		var DeletePlot = d3.select("#plot").selectAll("g");
 		DeletePlot.selectAll("*").remove();
 
-		var DeleteTopcis = d3.select("#topics").select("svg");
+		var DeleteTopcis = d3.select("#topics").selectAll("svg");
 		DeleteTopcis.remove();
 
 		queue()
