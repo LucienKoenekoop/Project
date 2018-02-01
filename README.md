@@ -35,3 +35,5 @@ Acknowledgements
 Images
 - https://www.binarytree.com/media/2832/european-union-gdpr.jpg
 - https://i1.wp.com/geoawesomeness.com/wp-content/uploads/2017/03/european-union-brexit-political-map-with-european-union-member-states.jpg
+
+[![BCH compliance](https://bettercodehub.com/edge/badge/LucienKoenekoop/Project?branch=master)](https://bettercodehub.com/)
