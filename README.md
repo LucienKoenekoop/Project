@@ -24,7 +24,7 @@ Data Sources
 External Components
 - Bootstrap
 
-Sources
+Acknowledgements
 - http://bl.ocks.org/oscar6echo/4423770
 - http://bl.ocks.org/erichoco/6694616
 - https://www.w3schools.com/howto/howto_js_rangeslider.asp
