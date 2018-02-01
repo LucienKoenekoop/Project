@@ -44,16 +44,16 @@ function test(year, country) {
 	var file;
 
 	if (country != "EU") {
-		file = "data/" + year + ".csv";
+		file = "../data/" + year + ".csv";
 	}
 	else {
-		file = "data/EU.csv";
+		file = "../data/EU.csv";
 	};
 
 	d3.csv(file, function(error, data) {
 		if (error) throw error;
 
-		if (file == "data/EU.csv") {
+		if (file == "../data/EU.csv") {
 			data.forEach(function(d) {
 				if (d.Year == year) {
 					d.GDP = +d.GDP;
@@ -75,7 +75,7 @@ function test(year, country) {
 				}
 			})
 		}
-		else if (file == "data/" + year + ".csv") {
+		else if (file == "../data/" + year + ".csv") {
 			data.forEach(function(d) {
 				if (d.Country == country) {
 					d.GDP = +d.GDP

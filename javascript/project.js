@@ -90,8 +90,8 @@ window.onload = function () {
 	svg.call(tip);
 	
 	queue()
-		.defer(d3.xml, "europe.svg")
-		.defer(d3.csv, "data/" + year + ".csv")
+		.defer(d3.xml, "../data/europe.svg")
+		.defer(d3.csv, "../data/" + year + ".csv")
 		.await(project);
 
 
@@ -235,8 +235,8 @@ window.onload = function () {
 		DeleteTopcis.remove();
 
 		queue()
-			.defer(d3.xml, "europe.svg")
-			.defer(d3.csv, "data/" + year + ".csv")
+			.defer(d3.xml, "../data/europe.svg")
+			.defer(d3.csv, "../data/" + year + ".csv")
 			.await(project);
 	}
 
