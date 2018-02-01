@@ -1,11 +1,12 @@
+// Function to draw the donut chart
 function test(year, country) {
 
-	d3.select("input[value=\"total\"]").property("checked", true);
-
+	// Definitions for the donut chart variables variables
 	var margin = {top: 10, right: 10, bottom: 20, left: 10},
 		width = 400 - margin.left - margin.right,
 		height = 300 - margin.top - margin.bottom;
 
+	// Appends the svg for the donut chart
 	var svg = d3.select("#topics").append("svg")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
@@ -14,6 +15,7 @@ function test(year, country) {
 	svg.append("g")
 		.attr("class", "slices");
 
+	// Other definitions of aesthetics of donut chart variables
 	var donutwidth = 300,
 	    donutheight = 300,
 		radius = Math.min(donutwidth, donutheight) / 2;
@@ -41,6 +43,7 @@ function test(year, country) {
 	var color = d3.scale.ordinal()
 		.range(colorRange.range());
 
+	// Selects the correct data file for what current country the donut charts needs to be drawn
 	var file;
 
 	if (country != "EU") {
@@ -50,9 +53,13 @@ function test(year, country) {
 		file = "../data/EU.csv";
 	};
 
+	// Loads the correct data file
 	d3.csv(file, function(error, data) {
+
+		// Error checking if files are correctly loaded
 		if (error) throw error;
 
+		// If current country is EU, sets labels and values for the EU donut chart
 		if (file == "../data/EU.csv") {
 			data.forEach(function(d) {
 				if (d.Year == year) {
@@ -72,9 +79,10 @@ function test(year, country) {
 		        		{label:"Education", value:d.Education},
 		        		{label:"Emission", value:d.Emission}
 		        	];
-				}
-			})
+				};
+			});
 		}
+		// If current country is a country, sets labels and values for the country donut chart
 		else if (file == "../data/" + year + ".csv") {
 			data.forEach(function(d) {
 				if (d.Country == country) {
@@ -95,16 +103,17 @@ function test(year, country) {
 		        		{label:"Education", value:d.Education},
 		        		{label:"Emission", value:d.Emission}
 		        	];
-				}
-			})
+				};
+			});
 		};
 
 	    change(dataset);
 	});
 
+	// Function for creating the donut chart
 	function change(data) {
 
-		/* ------- PIE SLICES -------*/
+		// Creates the slices 
 		var slice = svg.select(".slices").selectAll("path.slice")
 	        .data(pie(data), function(d){ return d.data.label });
 
@@ -124,18 +133,20 @@ function test(year, country) {
 	            return function(t) {
 	                return arc(interpolate(t));
 	            };
-	        })
+	        });
+	    // When clicking a slice, updates the scatterplot y-axis to the clicked slice topic
 	    slice
 	        .on("click", function(d) {
-	        	console.log(event.target.id);
 	        	yTopic = event.target.id;
 	        	Update();
 	        });
+	    // Heightens the slice hover opacity
 	    slice
 	        .on("mouseover", function(d) {
 				d3.select(this)
 					.style("opacity", 1);
 	        });
+	    // Restores the slice opacity
 	    slice
 	    	.on("mouseout", function(d) {
 			d3.select(this)
@@ -145,6 +156,7 @@ function test(year, country) {
 	    slice.exit()
 	        .remove();
 
+	    // Creates the legend of the donut Chart
 	    var legend = svg.selectAll('.legend')
 	        .data(color.domain())
 	        .enter()
@@ -168,7 +180,6 @@ function test(year, country) {
 	        .attr('x', legendRectSize + legendSpacing)
 	        .attr('y', legendRectSize - legendSpacing)
 	        .text(function(d) { return d; });
-
 	};
 
 }
