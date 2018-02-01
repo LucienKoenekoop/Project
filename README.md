@@ -2,30 +2,18 @@
 This repository contains all content of the programming project
 
 # Problem Statement
-Nowadays there is a lot of discussion in Dutch politics: leave or stay in the European Union. But in fact a lot of ambiguity is noticable among the Dutch population about what the EU exactly does, and what role it plays for the Netherlands and the Netherlands pays for it. To clearify this ambuguity the idea is to make an interactive visualization about the EU: about what topics revolves European politics and which amounts of money are involved. 
+Nowadays there is a lot of discussion in Dutch politics: leave or stay in the European Union. But in fact a lot of ambiguity is noticable among the Dutch population about what the EU exactly does, and what role it plays for the Netherlands and the Netherlands plays for it. To clearify this ambuguity the idea is to make an interactive visualization about the EU: about what topics revolves European politics and which amounts of money are involved. 
 
 # Solution
 This visualization will give insight in the acts of the EU and thus contribute to bring more nuance about European politics among the Dutch voters.
 
-sketch1
-![Alt Text](doc/sketch1.png)
-
-sketch2
-![Alt Text](doc/sketch2.png)
+![Alt Text](doc/readmefinal.png)
 
 
-The sketches of the product show an interactive map, which will contain all the members states of the EU. Clicking on the map will update some sort of data visualization (currently shown as barchart, but this might be a subject to change) of the selected country. Also a list of (popular) political task areas is shown in the project which will be clickable, which will show information as shown in the second sketch. How this visualization will be implemented is unclear, possibly based on some sort of bootstrap idea. 
-
-So the main features will be:
-- clickable interactive map
-- updated data visualization (for example a barchart)
-- clickable politcal themes, activating a pop-up/bootstrap/page
-
-All these features will define the MVP.
+This image of the page shows all the functionality that is implemented on the site. With the navbar can be toggled thourgh the different pages. On the home page, the scatterplot can be altered by clicking a country on the map, clicking a topic on the topics donut chart, by clicking another topic in the dropdown menu or by selecting another year with the slider. 
 
 # Prerequisites
 Data Sources
-Some data might need to be transformed before being usable
 https://www.prodemos.nl/leer/informatie-over-politiek/de-europese-unie/doet-europese-unie/
 https://www.europa-nu.nl/id/vh9w9l2qtnwn/nederlandse_afdrachten_aan_de_eu
 https://www.rijksoverheid.nl/onderwerpen/europese-unie
@@ -37,9 +25,7 @@ External Components
 Similar
 http://bl.ocks.org/oscar6echo/4423770
 http://bl.ocks.org/erichoco/6694616
-
-Hardest Part
-- transforming the data in such a way it wil represent the purpose of the project, so letting the data give relevant meaning to the visualizations
-- implementing the interaction to the map or political themes and the data in a correct way.
-
-
+https://www.w3schools.com/howto/howto_js_rangeslider.asp
+http://bl.ocks.org/juan-cb/1984c7f2b446fffeedde
+https://www.w3schools.com/css/css_dropdowns.asp
+https://www.w3schools.com/bootstrap/default.asp
