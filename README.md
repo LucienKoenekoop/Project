@@ -38,4 +38,4 @@ Images
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/LucienKoenekoop/Project?branch=master)](https://bettercodehub.com/)
 
-https://youtu.be/_CMi08WeWRs
+[Project instruction video](https://youtu.be/_CMi08WeWRs)
